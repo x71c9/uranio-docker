@@ -12,3 +12,4 @@ RUN cat .bash_docker >> /home/node/.bashrc
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 RUN --mount=type=ssh,uid=1000 yarn global add uranio
+

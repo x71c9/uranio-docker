@@ -24,6 +24,11 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
+      - name: Configure SSH agent
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.GH_PRIVATE_KEY }}
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -39,11 +44,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ env.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
-
-      - name: Configure SSH agent
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: ${{ secrets.GH_PRIVATE_KEY }}
 
       # - name: Set outputs
       #   id: vars
