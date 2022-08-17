@@ -37,10 +37,10 @@ jobs:
           username: ${{ env.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
 
-      # - name: Configure SSH agent
-      #   uses: webfactory/ssh-agent@v0.5.4
-      #   with:
-      #     ssh-private-key: ${{ secrets.GH_PRIVATE_KEY }}
+      - name: Configure SSH agent
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.GH_PRIVATE_KEY }}
 
       # - name: Set outputs
       #   id: vars
